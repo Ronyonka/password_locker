@@ -1,5 +1,13 @@
 #!/usr/bin/env python3.6
 from credentials import Credentials
+from user import User 
+
+def create_user(email, user_name, password):
+    '''
+    Function to create a new user
+    '''
+    new_user = User(email, user_name, password)
+    return new_user
 
 def create_credentials(account,account_name,account_password):
     '''
@@ -8,11 +16,23 @@ def create_credentials(account,account_name,account_password):
     new_credentials = Credentials(account,account_name,account_password)
     return new_credentials
 
+def save_user(user):
+    '''
+    Function to save users
+    '''
+    user.save_user()
+
 def save_credentials(credentials):
     '''
     Function to save credentials
     '''
     credentials.save_credentials()
+
+def del_user(user):
+    '''
+    Function to delete a credentials
+    '''
+    user.delete_user()
 
 def del_credentials(credentials):
     '''
@@ -38,4 +58,10 @@ def display_credentials():
     '''
     return Credentials.display_credentials()
 
+def main():
+  print("Welcome to your password locker. Do you have an account? y-yes n-no") 
 
+
+if __name__ == '__main__':
+
+    main()
