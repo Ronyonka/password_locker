@@ -70,7 +70,18 @@ def main():
     status = input("Do you have a Password Locker account yet?")
 
     if status == 'y':
-        print("Sign in")
+        print("WELCOME")
+        print("-"*60)
+        print(" To login , enter your account deails : ")
+        user_name = input("Enter your usename name :- ")
+        password = str(input("Enter your password :- "))
+        user_exists = user_name
+
+        if user_exists == user_name :
+            print(" ")
+            print ("Welcome back "+ str(user_name)+". /n Please choose an option to continue")
+            print(" ")
+
     elif status == 'n':
         print("Let Me Help you Create an account")
         e_mail= input('Enter email: ')
@@ -84,6 +95,11 @@ def main():
             print("Passwords do not match")
     else:
         print("Invalid input")
+
+    User.save_user(create_user(e_mail,u_name,key2)) 
+    print ('\n')
+    print("New User " + str(e_mail)+" "+str(u_name)+" created")
+    print ('\n')
 
 
 #    print(f"Hello {user_name}. what would you like to do?")

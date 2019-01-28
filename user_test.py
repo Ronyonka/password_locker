@@ -36,7 +36,18 @@ class TestUser(unittest.TestCase):
         test_user.save_user()
         self.assertEqual(len(User.user_list),2)
 
+    def test_user_exists(self):
+        '''
+        test to check if we can return a boolean if we can not find the users
+        '''
 
+        self.new_user.save_user()
+        test_user =  User("testemail","test user","testpassword")
+        test_user.save_user()
+
+        user_exist = User.user_exist("Test")
+
+        self.assertTrue(user_exist)
 
 if __name__ == '__main__':
     unittest.main()
