@@ -22,7 +22,7 @@ class TestCredentials(unittest.TestCase):
         '''
         test case to test if the credentials objects are saved into the contact list
         '''
-        self.new_credentials.test_save_credentials()
+        self.new_credentials.save_credentials()
         self.assertEqual(len(Credentials.credentials_list),1)
 
 if __name__ == '__main__':
