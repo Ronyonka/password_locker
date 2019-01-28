@@ -74,6 +74,27 @@ class TestCredentials(unittest.TestCase):
 
         found_credentials = Credentials.find_by_account("Test")
         self.assertEqual(found_credentials.account_name, test_credentials.account_name)
+
+    def test_credentials_exists(self):
+        '''
+        test to check if we can return a boolean if we can not find the credentials
+        '''
+
+        self.new_credentials.save_credentials()
+        test_credentials =  Credentials("Test","test user","testpassword")
+        test_credentials.save_credentials()
+
+        credentials_exist = Credentials.credentials_exist("Test")
+
+        self.assertTrue(credentials_exist)
+
+    def test_display_all_credentials(self):
+        '''
+        method that returns a list of all credentials
+        '''
+
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
+
 if __name__ == '__main__':
     unittest.main()
 
