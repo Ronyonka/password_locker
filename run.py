@@ -59,9 +59,27 @@ def display_credentials():
     return Credentials.display_credentials()
 
 def main():
-  print("Welcome to your password locker. Do you have an account? y-yes n-no") 
+    while True:
+        print("Welcome to your password locker. Do you have an account? y-yes n-no") 
+        status = input()
+        
+        if status == 'n':
+            # print('Enter email:')
+            e_mail= input('Enter email:')
 
+            # print('Enter Username:')
+            u_name= input('Enter Username:')
 
+            # print('Enter Password')
+            p_word= str(input('Enter Password:'))
+
+        save_user(create_user(e_mail,u_name,p_word))
+        print('\n')
+    
+        print("New Password Locker Account for has been created")
+
+        print('\n')
+        
 if __name__ == '__main__':
 
     main()
