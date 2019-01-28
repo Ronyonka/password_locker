@@ -11,17 +11,17 @@ class User:
         self.user_name = user_name
         self.password = password
 
-    def save_user(self):
-        """
-        save_user method saves users into user list
-        """
-        User.user_list.append(self)
+    # def save_user(self):
+    #     """
+    #     save_user method saves users into user list
+    #     """
+    #     User.user_list.append(self)
 
-    def delete_user(self):
-        """
-        delete_user method deletes already saved users from user list
-        """
-        User.user_list.remove(self)
+    # def delete_user(self):
+    #     """
+    #     delete_user method deletes already saved users from user list
+    #     """
+    #     User.user_list.remove(self)
 
     
 
