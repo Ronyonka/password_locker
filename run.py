@@ -74,7 +74,7 @@ def main():
         print("-"*60)
         print(" To login , enter your account deails : ")
         user_name = input("Enter your usename name :- ")
-        password = str(input("Enter your password :- "))
+        password = getpass.getpass('Password: ')
         user_exists = user_name
 
         if user_exists == user_name :
@@ -89,8 +89,19 @@ def main():
         key = getpass.getpass('Password: ')
         key2 = getpass.getpass('Re-enter Password: ')
 
-        if key == key2:
+        while key == key2:
             print("New Password Locker Account for " +str(u_name)+" has been created")
+            print(" You can now login to your account : ")
+            user_name = input("Enter your usename name :- ")
+            password = getpass.getpass('Password: ')
+            user_exists = user_name
+
+            
+            if user_exists == user_name :
+                print(" ")
+                print ("Welcome "+ str(user_name)+". Please choose an option to continue")
+            break   
+
         else :
             print("Passwords do not match")
     else:
