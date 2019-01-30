@@ -63,54 +63,86 @@ def main():
     print("Hello Welcome to Password. What is your name?")
     u_name = input() 
 
-    print("Hello "+str(u_name)+" welcome")
-    print('\n')
-    
-    print("Use these short codes:\n [y] - Yes \n [n] - No")
-    status = input("Do you have a Password Locker account yet?")
+    print(f"Hello {u_name} welcome")
 
-    if status == 'y':
-        print("WELCOME")
-        print("-"*60)
-        print(" To login , enter your account deails : ")
-        user_name = input("Enter your usename name :- ")
-        password = getpass.getpass('Password: ')
-        user_exists = user_name
+    while True:
+        print("Use these short codes:\n [y] - Yes \n [n] - No")
+        status = input("Do you have a Password Locker account yet?")
 
-        if user_exists == user_name :
-            print(" ")
-            print ("Welcome back "+ str(user_name)+". /n Please choose an option to continue")
-            print(" ")
-
-    elif status == 'n':
-        print("Let Me Help you Create an account")
-        e_mail= input('Enter email: ')
-        u_name= input('Select Username: ')
-        key = getpass.getpass('Password: ')
-        key2 = getpass.getpass('Re-enter Password: ')
-
-        while key == key2:
-            print("New Password Locker Account for " +str(u_name)+" has been created")
-            print(" You can now login to your account : ")
-            user_name = input("Enter your usename name :- ")
+        if status == 'y':
+            print("WELCOME")
+            print("-"*60)
+            print(" To login , enter your account deails : ")
+            user_name = input("Enter your usename name : ")
             password = getpass.getpass('Password: ')
             user_exists = user_name
 
-            
             if user_exists == user_name :
                 print(" ")
-                print ("Welcome "+ str(user_name)+". Please choose an option to continue")
-            break   
+                print (f"Welcome back {user_name}. /n Please choose an option to continue")
+                print(" ")
 
-        else :
-            print("Passwords do not match")
-    else:
-        print("Invalid input")
+        elif status == 'n':
+            print("Let Me Help you Create an account")
+            e_mail= input('Enter email: ')
+            u_name= input('Select Username: ')
+            key = getpass.getpass('Password: ')
+            key2 = getpass.getpass('Re-enter Password: ')
+            
+        
+            while key != key2:
+                print("sorry your passwords do not match")
+                print("Enter your password again")
+                key = getpass.getpass('Password: ')
+                key2 = getpass.getpass('Re-enter Password: ')
 
-    User.save_user(create_user(e_mail,u_name,key2)) 
-    print ('\n')
-    print("New User " + str(e_mail)+" "+str(u_name)+" created")
-    print ('\n')
+        
+            else:
+                print(f"New Password Locker Account for {u_name} has been created")
+                print(" You can now login to your account : ")
+                new_user = input("Enter your usename name : ")
+                new_password = getpass.getpass('Password: ')
+
+                
+            while new_user !=  u_name or new_password != key2:
+                print("you have entered a wrong username or password")
+                print("Please enter your login information again....") 
+                new_user = input("Enter usename: ")
+                new_password = getpass.getpass('Password: ')          
+
+            else:
+                print(f"Welcome {new_user} to your Password locker account. \n")  
+
+                while True:
+                    print("Select an option below to continue:")
+                    print("")
+
+                    print("a: View your saved accounts \n b: Add a new account \n c: Delete credentials \n d: Find an account \n e: logout \n copy: copy information")
+                    option = input()
+                    
+                    if option == 'e':
+                        print("bye....")
+                        break
+
+                    elif option == "c":
+                        while True:
+                            print("Type credential name you want to delete......")
+                            search_account = input()
+                            if check_existing_credentials(search_account):
+                            search_credential = find_credentials(search_account)
+                            print(f"Account :{search_credential.user_account}\n Password: {search_credential.account_password}")
+                            print(f"are you sure you want to delete {search_credential.user_account} ? y or n")
+                            answer = input().lower()
+
+                    #     else :
+    #         print("Passwords do not match")
+    # else:
+    #     print("Invalid input")
+
+    # User.save_user(create_user(e_mail,u_name,key2)) 
+    # print ('\n')
+    # print(f"New User {e_mail} {u_name} created")
+    # print ('\n')
 
 
 #    print(f"Hello {user_name}. what would you like to do?")
