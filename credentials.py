@@ -1,4 +1,6 @@
 import pyperclip
+# import random
+# import string
 
 class Credentials:
     """
@@ -25,6 +27,14 @@ class Credentials:
         '''
 
         Credentials.credentials_list.remove(self)
+
+    # def generate_password(self,stringLength=8,char= string.ascii_letters+string.digits):
+    #     '''
+    #     This is a method to generate random string passwords for the application
+    #     '''
+
+    #     gen_pass = ''.join(random.choice(char) for i in range(stringLength))
+    #     return gen_pass
 
     @classmethod
     def find_by_account(cls, account):
