@@ -1,13 +1,100 @@
 #!/usr/bin/env python3.6
+import pyperclip
+from user import User
+from credentials import Credentials
+
+def create_user(fname, uname, password):
+    '''
+    This is a function to create a new user
+    '''
+    new_user = User(fname , uname, password)
+    return new_user
+
+def save_user(user):
+    '''
+    This function saves a new user
+    '''
+    user.save_user()
+
+
+def del_user(user):
+    '''
+    This function deletes a user 
+    '''
+    user.delete_user()
+
+def create_new_credential(user_account, account_password):
+    ''' 
+    This function allows a user create a new credential account
+    '''
+    new_credential = Credentials(user_account , account_password)
+    return new_credential
+
+def save_new_credentials(credential):
+    ''' 
+    This is a function to save new credentials created 
+    '''
+    credential.save_credential()
+
+def delete_credentials(credential):
+    '''
+    This is a function to delete credentials by the user 
+    '''
+    return Credentials.delete_credential(credential)
+
+def verify_user(name):
+	'''
+	Function that checks if the username already exists in the system
+	'''
+	checking_user = Credentials.find_by_name(name)
+	return checking_user
+ 
+def find_credentials(user_account):
+   '''
+     Function to find stored credentials
+    '''
+   return Credentials.find_by_name(user_account)
+
+def check_existing_credentials(name):
+   '''
+   Function to check if an inputed credential name exists
+    '''
+   return Credentials.find_by_name(name)
+
+def copy_credential(user_account):
+	'''
+	Function to copy a credentials details to the clipboard
+	'''
+	return Credentials.copy_credential(user_account)
+
+def display_credential():
+    '''
+    Function to display credentials of an account
+    '''
+    return Credentials.display_credential()
+
+def generate_password():
+    '''
+    This is a function to generate random password
+    '''
+    gen_pass = Credentials.generate_password()
+    return gen_pass
+
+
+
+
+
+
+
 # from credentials import Credentials
 # from user import User 
 # import getpass
 
-# def create_user(email, user_name, password):
+# def create_user(email, last_name, password):
 #     '''
 #     Function to create a new user
 #     '''
-#     new_user = User(email, user_name, password)
+#     new_user = User(email, last_name, password)
 #     return new_user
 
 # def create_credentials(account,account_name,account_password):
@@ -80,13 +167,13 @@
 #             print("WELCOME")
 #             print("-"*60)
 #             print(" To login , enter your account deails : ")
-#             user_name = input("Enter your usename name : ")
+#             last_name = input("Enter your usename name : ")
 #             password = getpass.getpass('Password: ')
-#             user_exists = user_name
+#             user_exists = last_name
 
-#             if user_exists == user_name :
+#             if user_exists == last_name :
 #                 print(" ")
-#                 print (f"Welcome back {user_name}. /n Please choose an option to continue")
+#                 print (f"Welcome back {last_name}. /n Please choose an option to continue")
 #                 print(" ")
 
 #         elif status == 'n':
