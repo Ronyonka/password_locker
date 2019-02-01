@@ -1,63 +1,63 @@
 #!/usr/bin/env python3.6
-from credentials import Credentials
-from user import User 
-import getpass
+# from credentials import Credentials
+# from user import User 
+# import getpass
 
-def create_user(email, user_name, password):
-    '''
-    Function to create a new user
-    '''
-    new_user = User(email, user_name, password)
-    return new_user
+# def create_user(email, user_name, password):
+#     '''
+#     Function to create a new user
+#     '''
+#     new_user = User(email, user_name, password)
+#     return new_user
 
-def create_credentials(account,account_name,account_password):
-    '''
-    Function to create a new credential
-    '''
-    new_credentials = Credentials(account,account_name,account_password)
-    return new_credentials
+# def create_credentials(account,account_name,account_password):
+#     '''
+#     Function to create a new credential
+#     '''
+#     new_credentials = Credentials(account,account_name,account_password)
+#     return new_credentials
 
-def save_user(user):
-    '''
-    Function to save users
-    '''
-    user.save_user(user)
+# def save_user(user):
+#     '''
+#     Function to save users
+#     '''
+#     user.save_user(user)
 
-def save_credentials(credentials):
-    '''
-    Function to save credentials
-    '''
-    credentials.save_credentials()
+# def save_credentials(credentials):
+#     '''
+#     Function to save credentials
+#     '''
+#     credentials.save_credentials()
 
-def del_user(user):
-    '''
-    Function to delete a credentials
-    '''
-    user.delete_user()
+# def del_user(user):
+#     '''
+#     Function to delete a credentials
+#     '''
+#     user.delete_user()
 
-def del_credentials(credentials):
-    '''
-    Function to delete a credentials
-    '''
-    credentials.delete_credentials()
+# def del_credentials(credentials):
+#     '''
+#     Function to delete a credentials
+#     '''
+#     credentials.delete_credentials()
 
-def find_credentials(account_name):
-    '''
-    Function that finds a credentials by number and returns the credentials
-    '''
-    return Credentials.find_by_account(account_name)
+# def find_credentials(account_name):
+#     '''
+#     Function that finds a credentials by number and returns the credentials
+#     '''
+#     return Credentials.find_by_account(account_name)
 
-def check_existing_credentials(account_name):
-    '''
-    Function that check if a credentials exists with that number and return a Boolean
-    '''
-    return Credentials.credentials_exist(account_name)
+# def check_existing_credentials(account_name):
+#     '''
+#     Function that check if a credentials exists with that number and return a Boolean
+#     '''
+#     return Credentials.credentials_exist(account_name)
 
-def display_credentials():
-    '''
-    Function that returns all the saved credentialss
-    '''
-    return Credentials.display_credentials()
+# def display_credentials():
+#     '''
+#     Function that returns all the saved credentialss
+#     '''
+#     return Credentials.display_credentials()
 
 # def generate_password():
 #     '''
@@ -66,138 +66,138 @@ def display_credentials():
 #     gen_pass = Credentials.generate_password()
 #     return gen_pass
 
-def main():
-    print("Hello Welcome to Password. What is your name?")
-    u_name = input() 
+# def main():
+#     print("Hello Welcome to Password. What is your name?")
+#     u_name = input() 
 
-    print(f"Hello {u_name} welcome")
+#     print(f"Hello {u_name} welcome")
 
-    while True:
-        print("Use these short codes:\n [y] - Yes \n [n] - No")
-        status = input("Do you have a Password Locker account yet?")
+#     while True:
+#         print("Use these short codes:\n [y] - Yes \n [n] - No")
+#         status = input("Do you have a Password Locker account yet?")
 
-        if status == 'y':
-            print("WELCOME")
-            print("-"*60)
-            print(" To login , enter your account deails : ")
-            user_name = input("Enter your usename name : ")
-            password = getpass.getpass('Password: ')
-            user_exists = user_name
+#         if status == 'y':
+#             print("WELCOME")
+#             print("-"*60)
+#             print(" To login , enter your account deails : ")
+#             user_name = input("Enter your usename name : ")
+#             password = getpass.getpass('Password: ')
+#             user_exists = user_name
 
-            if user_exists == user_name :
-                print(" ")
-                print (f"Welcome back {user_name}. /n Please choose an option to continue")
-                print(" ")
+#             if user_exists == user_name :
+#                 print(" ")
+#                 print (f"Welcome back {user_name}. /n Please choose an option to continue")
+#                 print(" ")
 
-        elif status == 'n':
-            print("Let Me Help you Create an account")
-            e_mail= input('Enter email: ')
-            u_name= input('Select Username: ')
-            key = getpass.getpass('Password: ')
-            key2 = getpass.getpass('Re-enter Password: ')
+#         elif status == 'n':
+#             print("Let Me Help you Create an account")
+#             e_mail= input('Enter email: ')
+#             u_name= input('Select Username: ')
+#             key = getpass.getpass('Password: ')
+#             key2 = getpass.getpass('Re-enter Password: ')
             
         
-            while key != key2:
-                print("sorry your passwords do not match")
-                print("Enter your password again")
-                key = getpass.getpass('Password: ')
-                key2 = getpass.getpass('Re-enter Password: ')
+#             while key != key2:
+#                 print("sorry your passwords do not match")
+#                 print("Enter your password again")
+#                 key = getpass.getpass('Password: ')
+#                 key2 = getpass.getpass('Re-enter Password: ')
 
         
-            else:
-                print(f"New Password Locker Account for {u_name} has been created")
-                print(" You can now login to your account : ")
-                new_user = input("Enter your usename name : ")
-                new_password = getpass.getpass('Password: ')
+#             else:
+#                 print(f"New Password Locker Account for {u_name} has been created")
+#                 print(" You can now login to your account : ")
+#                 new_user = input("Enter your usename name : ")
+#                 new_password = getpass.getpass('Password: ')
 
                 
-            while new_user !=  u_name or new_password != key2:
-                print("you have entered a wrong username or password")
-                print("Please enter your login information again....") 
-                new_user = input("Enter usename: ")
-                new_password = getpass.getpass('Password: ')          
+#             while new_user !=  u_name or new_password != key2:
+#                 print("you have entered a wrong username or password")
+#                 print("Please enter your login information again....") 
+#                 new_user = input("Enter usename: ")
+#                 new_password = getpass.getpass('Password: ')          
 
-            else:
-                print(f"Welcome {new_user} to your Password locker account. \n")  
+#             else:
+#                 print(f"Welcome {new_user} to your Password locker account. \n")  
 
-                while True:
-                    print("Select an option below to continue:")
-                    print("")
+#                 while True:
+#                     print("Select an option below to continue:")
+#                     print("")
 
-                    print("[a] View your saved accounts \n [b] Add a new account \n[c] Delete credentials \n [d] Find an account \n [e] Logout \n [cp] Copy information")
-                    option = input()
+#                     print("[a] View your saved accounts \n [b] Add a new account \n[c] Delete credentials \n [d] Find an account \n [e] Logout \n [cp] Copy information")
+#                     option = input()
                     
-                    if option == 'e':
-                        print("bye....")
-                        break
+#                     if option == 'e':
+#                         print("bye....")
+#                         break
 
-                    elif option == "c":
-                        while True:
-                            print("Type credential name you want to delete......")
-                            search_account = input()
-                            if check_existing_credentials(search_account):
-                                search_credential = find_credentials(search_account)
-                                print(f"Account :{search_credential.user_account}\n Password: {search_credential.account_password}")
-                                print(f"are you sure you want to delete {search_credential.user_account} ? \n [y] \n [n]")
-                                answer = input().lower()
+#                     elif option == "c":
+#                         while True:
+#                             print("Type credential name you want to delete......")
+#                             search_account = input()
+#                             if check_existing_credentials(search_account):
+#                                 search_credential = find_credentials(search_account)
+#                                 print(f"Account :{search_credential.user_account}\n Password: {search_credential.account_password}")
+#                                 print(f"are you sure you want to delete {search_credential.user_account} ? \n [y] \n [n]")
+#                                 answer = input().lower()
 
-                                if answer == 'y':
-                                    del_credentials(search_credential)
-                                    print("Account has been deleted sucessfully")
-                                    break
-                                elif answer == 'n':
-                                    continue
-                                else:
-                                    break
+#                                 if answer == 'y':
+#                                     del_credentials(search_credential)
+#                                     print("Account has been deleted sucessfully")
+#                                     break
+#                                 elif answer == 'n':
+#                                     continue
+#                                 else:
+#                                     break
 
-                    elif option == "b":
-                        while True:
+#                     elif option == "b":
+#                         while True:
 
-                            print ("Enter Account Name")
-                            user_account = input()
-                            print("Enter your desired password")
-                            print("To use your own password use [o] \n Generate a random one use [g] ")
-                            keyword = input().lower()
-                            if keyword == "o" :
-                                print("Create your own password : ")
-                                account_password = input()
-                                print(f" Account : {user_account}")
-                                print(f" Password : {account_password}")
-                                print(" ")
+#                             print ("Enter Account Name")
+#                             user_account = input()
+#                             print("Enter your desired password")
+#                             print("To use your own password use [o] \n Generate a random one use [g] ")
+#                             keyword = input().lower()
+#                             if keyword == "o" :
+#                                 print("Create your own password : ")
+#                                 account_password = input()
+#                                 print(f" Account : {user_account}")
+#                                 print(f" Password : {account_password}")
+#                                 print(" ")
 
                             # elif keyword == "g":
                             #     account_password = generate_password()
                             #     print(f" Account : {user_account}")
                             #     print(f" Password : {account_password}")
                             #     print(" ")
-                            else:
-                                print("please create a password")
+                            # else:
+                            #     print("please create a password")
                                 # save_credentials( create_credentials(user_account,account_password))
 
-                        break
+                    #     break
 
-                    elif option == "a":
-                        print("")
-                        if display_credentials(): 
-                            for credential in display_credentials():
-                                print(f"Account Name : {credential.user_account}") 
-                                print(f"Password : {credential.account_password}")
-                        else:
-                            print("")
-                            print(" You don't have any credentials yet")
-                            print("")
+                    # elif option == "a":
+                    #     print("")
+                    #     if display_credentials(): 
+                    #         for credential in display_credentials():
+                    #             print(f"Account Name : {credential.user_account}") 
+                    #             print(f"Password : {credential.account_password}")
+                    #     else:
+                    #         print("")
+                    #         print(" You don't have any credentials yet")
+                    #         print("")
 
-                    elif option == "d":
-                        while True:
-                            print("Enter an account name to find credentials")
-                            search_account = input()
-                            if check_existing_credentials(search_account):
-                                    search_account = find_credentials(search_account)
-                                    print(f"{search_account.user_account} \n {search_account.account_password}")
-                                    print('-'*10)
-                            else:
-                                    print("The credential doesn't exist")
-                                    break
+                    # elif option == "d":
+                    #     while True:
+                    #         print("Enter an account name to find credentials")
+                    #         search_account = input()
+                    #         if check_existing_credentials(search_account):
+                    #                 search_account = find_credentials(search_account)
+                    #                 print(f"{search_account.user_account} \n {search_account.account_password}")
+                    #                 print('-'*10)
+                    #         else:
+                    #                 print("The credential doesn't exist")
+                    #                 break
                    
                     # elif option == "cp":
                     #     print("")
@@ -206,6 +206,6 @@ def main():
                     #     print("")
 
         
-if __name__ == '__main__':
+# if __name__ == '__main__':
 
-    main()
+#     main()
