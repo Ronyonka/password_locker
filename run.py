@@ -72,8 +72,8 @@ def display_credential():
     '''
     Function to display credentials of an account
     '''
-    return Credentials.display_credential()
-
+    return Credentials.credential_list
+    
 def generate_password():
     '''
     This is a function to generate random password
@@ -93,7 +93,7 @@ def main():
    
 
     while True:  
-        print("Please use the following short codes :\n [c] - Create new account  ,\n [l] - Log in ,\n [e] -  Exit password locker") 
+        print("Please use the following short codes :\n [c] - Create new account  \n [l] - Log in \n [e] -  Exit password locker") 
         short_code = input().lower()
 
 
@@ -152,8 +152,8 @@ def main():
                 elif option == "a":
                     
                     while True:
-                        print("Do you want to add an account? [y] \n [n]")
-
+                        print("Do you want to add an account? \n[y]\n[n]")
+                        break
                     choice = input().lower()
                     if choice == "y":
                         print ("Enter Account Name")
@@ -287,8 +287,10 @@ def main():
         elif short_code == "e":
             print("Bye....we hope you again visit soon")
             break
-    if __name__ == '__main__':
-        main()
+
+        
+if __name__ == '__main__':
+    main()
 
 
 

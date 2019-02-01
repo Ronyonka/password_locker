@@ -29,6 +29,16 @@ class User:
 
         User.user_list.remove(self)
 
+    @classmethod
+    def user_exist(cls,user_name):
+        '''
+        Method that checks if a contact exists from the contact list.
+        '''
 
+        for user in cls.user_list:
+            if user.user_name == user_name:
+                return False
+
+            return True
 
 
